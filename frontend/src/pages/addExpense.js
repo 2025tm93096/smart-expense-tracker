@@ -3,6 +3,7 @@ import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import DarkModeToggle from "../components/DarkModeToggle";
+import getAddExpenseStyles from "../styles/addExpenseStyles";
 
 function AddExpense() {
   const [category, setCategory] = useState("");
@@ -10,86 +11,7 @@ function AddExpense() {
   const [date, setDate] = useState("");
   const navigate = useNavigate();
   const { isDark } = useTheme();
-
-  const pageStyle = {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: isDark
-      ? "linear-gradient(135deg, #0f0c29 0%, #302b63 100%)"
-      : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    transition: "background 0.3s",
-  };
-
-  const cardStyle = {
-    background: isDark ? "#1e2845" : "#fff",
-    borderRadius: "16px",
-    padding: "48px 40px",
-    width: "100%",
-    maxWidth: "420px",
-    boxShadow: isDark
-      ? "0 20px 60px rgba(0,0,0,0.5)"
-      : "0 20px 60px rgba(0,0,0,0.2)",
-    transition: "background 0.3s",
-  };
-
-  const titleStyle = {
-    textAlign: "center",
-    fontSize: "24px",
-    fontWeight: "700",
-    color: isDark ? "#e8e8f4" : "#1a1a2e",
-    marginBottom: "28px",
-  };
-
-  const labelStyle = {
-    display: "block",
-    fontSize: "13px",
-    fontWeight: "600",
-    color: isDark ? "#b0b0cc" : "#555",
-    marginBottom: "6px",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    padding: "12px 14px",
-    borderRadius: "8px",
-    border: `1.5px solid ${isDark ? "#3a3a5c" : "#e0e0e0"}`,
-    fontSize: "15px",
-    outline: "none",
-    boxSizing: "border-box",
-    color: isDark ? "#e8e8f4" : "#333",
-    background: isDark ? "#16213e" : "#fafafa",
-    transition: "background 0.3s, border-color 0.3s",
-    marginBottom: "20px",
-  };
-
-  const submitBtnStyle = {
-    width: "100%",
-    padding: "13px",
-    background: "linear-gradient(135deg, #667eea, #764ba2)",
-    color: "#fff",
-    border: "none",
-    borderRadius: "8px",
-    fontSize: "16px",
-    fontWeight: "600",
-    cursor: "pointer",
-    marginTop: "8px",
-  };
-
-  const backBtnStyle = {
-    width: "100%",
-    padding: "12px",
-    marginTop: "12px",
-    background: "transparent",
-    color: isDark ? "#9090ee" : "#667eea",
-    border: `1.5px solid ${isDark ? "#9090ee" : "#667eea"}`,
-    borderRadius: "8px",
-    fontSize: "15px",
-    fontWeight: "600",
-    cursor: "pointer",
-  };
+  const s = getAddExpenseStyles(isDark);
 
   const handleAdd = async (e) => {
     e.preventDefault();
@@ -103,53 +25,53 @@ function AddExpense() {
   };
 
   return (
-    <div style={pageStyle}>
+    <div style={s.page}>
       <DarkModeToggle />
-      <div style={cardStyle}>
-        <h2 style={titleStyle}>Add Expense</h2>
+      <div style={s.card}>
+        <h2 style={s.title}>Add Expense</h2>
         <form onSubmit={handleAdd}>
-          <label style={labelStyle} htmlFor="category">
+          <label style={s.label} htmlFor="category">
             Category
           </label>
           <input
             id="category"
-            style={inputStyle}
+            style={s.input}
             type="text"
             placeholder="e.g. Food, Travel"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             required
           />
-          <label style={labelStyle} htmlFor="amount">
+          <label style={s.label} htmlFor="amount">
             Amount (₹)
           </label>
           <input
             id="amount"
-            style={inputStyle}
+            style={s.input}
             type="number"
             placeholder="Enter amount"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             required
           />
-          <label style={labelStyle} htmlFor="date">
+          <label style={s.label} htmlFor="date">
             Date
           </label>
           <input
             id="date"
-            style={inputStyle}
+            style={s.input}
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
             required
           />
-          <button type="submit" style={submitBtnStyle}>
+          <button type="submit" style={s.submitBtn}>
             Add Expense
           </button>
         </form>
         <button
           type="button"
-          style={backBtnStyle}
+          style={s.backBtn}
           onClick={() => navigate("/dashboard")}
         >
           Back to Dashboard
