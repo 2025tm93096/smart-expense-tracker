@@ -31,13 +31,13 @@ Register a new user.
 }
 ```
 
-| Field       | Type   | Required | Rules                                                        |
-| ----------- | ------ | -------- | ------------------------------------------------------------ |
-| username    | string | ✅       | 3–30 chars, unique                                           |
-| password    | string | ✅       | min 6 chars                                                  |
-| purpose     | string | ❌       | `Personal` \| `Retail Shop` \| `Trip` \| `Petrol` \| `Other` |
-| purposeNote | string | ❌       | max 200 chars, only used when purpose = "Other"              |
-| mobile      | string | ❌       | format: `+<countrycode><number>` e.g. `+919876543210`        |
+| Field       | Type   | Required | Rules                                                           |
+| ----------- | ------ | -------- | --------------------------------------------------------------- |
+| username    | string | ✅       | 3–30 chars, unique                                              |
+| password    | string | ✅       | min 6 chars                                                     |
+| purpose     | string | ❌       | `Personal` \| `Retail Shop` \| `Trip` \| `Petrol` \| `Other`    |
+| purposeNote | string | ❌       | max 200 chars, only used when purpose = "Other"                 |
+| mobile      | string | ✅       | required, format: `+<countrycode><number>` e.g. `+919876543210` |
 
 **Responses:**
 

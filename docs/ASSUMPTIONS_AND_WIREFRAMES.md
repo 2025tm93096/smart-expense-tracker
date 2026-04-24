@@ -18,7 +18,7 @@
 
 6. **Recurring expenses** — The `recurring` flag is informational only (shown as a badge). There is no automated recurring creation — users add them manually each month.
 
-7. **Mobile number = identity for splits** — Split member matching is based on the mobile number stored in the user's profile. A user without a mobile number will not receive incoming split requests.
+7. **Mobile number = identity for splits** — Mobile number is **required at signup**. Split member matching is based on the mobile number stored in the user's profile.
 
 8. **Max 20 split members** — Practical upper limit per split group.
 

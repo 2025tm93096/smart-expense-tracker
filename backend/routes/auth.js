@@ -26,7 +26,8 @@ router.post(
       .isLength({ max: 200 })
       .withMessage("Purpose note must be under 200 characters"),
     body("mobile")
-      .optional()
+      .notEmpty()
+      .withMessage("Mobile number is required")
       .matches(/^\+\d{1,4}\d{7,12}$/)
       .withMessage("Enter a valid mobile number with country code"),
   ],
@@ -49,7 +50,7 @@ router.post(
         password,
         purpose: purpose || "Personal",
         purposeNote: purpose === "Other" ? purposeNote || "" : "",
-        mobile: mobile || "",
+        mobile,
       });
       await user.save();
 

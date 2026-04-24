@@ -27,16 +27,16 @@ MongoDB (via Mongoose). All collections use `_id` (ObjectId) as primary key and 
 
 **Collection:** `users`
 
-| Field         | Type     | Required | Constraints                                                             |
-| ------------- | -------- | -------- | ----------------------------------------------------------------------- |
-| `_id`         | ObjectId | auto     | Primary key                                                             |
-| `username`    | String   | ✅       | unique, trim, 3–30 chars                                                |
-| `password`    | String   | ✅       | bcrypt hashed, min 6 chars                                              |
-| `purpose`     | String   | ❌       | enum: Personal / Retail Shop / Trip / Petrol / Other, default: Personal |
-| `purposeNote` | String   | ❌       | max 200 chars, default: ""                                              |
-| `mobile`      | String   | ❌       | with country code e.g. +919876543210, default: ""                       |
-| `createdAt`   | Date     | auto     |                                                                         |
-| `updatedAt`   | Date     | auto     |                                                                         |
+| Field         | Type     | Required | Constraints                                                                  |
+| ------------- | -------- | -------- | ---------------------------------------------------------------------------- |
+| `_id`         | ObjectId | auto     | Primary key                                                                  |
+| `username`    | String   | ✅       | unique, trim, 3–30 chars                                                     |
+| `password`    | String   | ✅       | bcrypt hashed, min 6 chars                                                   |
+| `purpose`     | String   | ❌       | enum: Personal / Retail Shop / Trip / Petrol / Other, default: Personal      |
+| `purposeNote` | String   | ❌       | max 200 chars, default: ""                                                   |
+| `mobile`      | String   | ✅       | required, with country code e.g. +919876543210, used for split bill matching |
+| `createdAt`   | Date     | auto     |                                                                              |
+| `updatedAt`   | Date     | auto     |                                                                              |
 
 **Indexes:**
 
