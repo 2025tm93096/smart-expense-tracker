@@ -6,6 +6,9 @@ const helmet = require("helmet");
 
 const authRoutes = require("./routes/auth");
 const expenseRoutes = require("./routes/expenses");
+const splitRoutes = require("./routes/splits");
+const budgetRoutes = require("./routes/budgets");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 
@@ -33,9 +36,22 @@ app.use(
 
 app.use(express.json());
 
+// Rate limiting — only on login and signup to prevent brute force
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50,
+  message: { message: "Too many attempts, please try again later" },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 // Routes
+app.use("/signup", authLimiter);
+app.use("/login", authLimiter);
 app.use("/", authRoutes);
 app.use("/expenses", expenseRoutes);
+app.use("/splits", splitRoutes);
+app.use("/budgets", budgetRoutes);
 
 // Health check
 app.get("/health", (req, res) => res.json({ status: "ok" }));

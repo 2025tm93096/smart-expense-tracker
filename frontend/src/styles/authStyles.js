@@ -1,4 +1,4 @@
-const getAuthStyles = (isDark) => ({
+const getAuthStyles = (isDark, isMobile = false) => ({
   page: {
     minHeight: "100vh",
     display: "flex",
@@ -9,11 +9,12 @@ const getAuthStyles = (isDark) => ({
       : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     transition: "background 0.3s",
+    padding: isMobile ? "16px" : "0",
   },
   card: {
     background: isDark ? "#1e2845" : "#fff",
     borderRadius: "16px",
-    padding: "48px 40px",
+    padding: isMobile ? "28px 20px" : "48px 40px",
     width: "100%",
     maxWidth: "400px",
     boxShadow: isDark

@@ -3,7 +3,9 @@ import Login from "./pages/login";
 import Signup from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 import AddExpense from "./pages/addExpense";
+import SplitBills from "./pages/splitBills";
 import { ThemeProvider } from "./context/ThemeContext";
+import "./styles/responsive.css";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-expense" element={<AddExpense />} />
+          <Route path="/split-bills" element={<SplitBills />} />
         </Routes>
       </Router>
     </ThemeProvider>

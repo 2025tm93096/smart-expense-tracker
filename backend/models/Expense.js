@@ -22,6 +22,15 @@ const expenseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    toUser: {
+      type: String,
+      trim: true,
+      default: null,
+    },
+    recurring: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );

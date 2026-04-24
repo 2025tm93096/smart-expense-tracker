@@ -1,0 +1,145 @@
+/* ─────────────────────────────────────────────────────────────────
+   RESPONSIVE LAYOUT — media queries with !important to override
+   inline styles set by dark-mode style functions.
+   These classes are added via className on layout-critical elements.
+───────────────────────────────────────────────────────────────── */
+
+/* ══ Auth pages (login / signup) ══════════════════════════════ */
+
+.auth-page {
+  padding: 0 16px;
+  align-items: flex-start;
+  min-height: 100dvh;
+}
+
+/* On desktop keep centred; only loosen on mobile */
+@media (min-width: 768px) {
+  .auth-page {
+    padding: 0;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-page {
+    padding-top: 64px !important;
+    align-items: flex-start !important;
+  }
+  .auth-card {
+    padding: 24px 18px !important;
+  }
+
+  /* ── Dashboard ── */
+  .db-page {
+    padding: 16px 12px !important;
+  }
+  .db-header {
+    align-items: flex-start !important;
+  }
+  .db-title {
+    font-size: 17px !important;
+    max-width: 55vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-header-right {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+  }
+  .db-summary-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .db-filter-bar {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .db-filter-select {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  .db-filter-search {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  .db-export-btn {
+    width: 100% !important;
+  }
+  .db-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .db-card {
+    padding: 14px 12px !important;
+  }
+  .db-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 0 -4px;
+  }
+  .db-table {
+    min-width: 420px;
+  }
+  .db-modal {
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  /* ── Split Bills ── */
+  .sb-page {
+    padding: 16px 12px !important;
+  }
+  .sb-title {
+    font-size: 17px !important;
+  }
+  .sb-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .sb-card {
+    padding: 16px 14px !important;
+  }
+  .sb-member-row {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .sb-member-row input {
+    min-width: 0 !important;
+    width: calc(50% - 3px) !important;
+    flex: none !important;
+  }
+  .sb-member-row select {
+    width: calc(50% - 3px) !important;
+    flex-shrink: 1 !important;
+  }
+  .sb-incoming-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .sb-incoming-right {
+    width: 100% !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .sb-header-right {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* ── Add Expense ── */
+  .ae-page {
+    padding: 0 12px 24px !important;
+  }
+  .ae-card {
+    padding: 24px 18px !important;
+  }
+
+  /* ── TopBar ── */
+  .topbar-wrap {
+    gap: 6px !important;
+  }
+}

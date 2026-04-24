@@ -2,6 +2,7 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/User");
+const authMiddleware = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -96,5 +97,22 @@ router.post(
     }
   },
 );
+
+// GET /me — return current user's profile
+router.get("/me", authMiddleware, async (req, res) => {
+  try {
+    const user = await User.findById(req.userId).select(
+      "username mobile purpose",
+    );
+    if (!user) return res.status(404).json({ message: "User not found" });
+    res.json({
+      username: user.username,
+      mobile: user.mobile,
+      purpose: user.purpose,
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Failed to fetch profile" });
+  }
+});
 
 module.exports = router;

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import getAuthStyles from "../styles/authStyles";
 import { useTheme } from "../context/ThemeContext";
 import DarkModeToggle from "../components/DarkModeToggle";
+import useWindowWidth from "../hooks/useWindowWidth";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -12,7 +13,9 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { isDark } = useTheme();
-  const styles = getAuthStyles(isDark);
+  const width = useWindowWidth();
+  const isMobile = width < 768;
+  const styles = getAuthStyles(isDark, isMobile);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,9 +33,9 @@ function Login() {
   };
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} className="auth-page">
       <DarkModeToggle />
-      <div style={styles.card}>
+      <div style={styles.card} className="auth-card">
         <div style={styles.logo}>
           <span style={styles.logoIcon}>💰</span>
         </div>
