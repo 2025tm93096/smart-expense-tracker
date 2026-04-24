@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea" />
+            <stop offset="100%" style="stop-color:#764ba2" />
+        </linearGradient>
+    </defs>
+    <!-- Rounded background -->
+    <rect width="64" height="64" rx="14" fill="url(#bg)" />
+    <!-- Wallet body -->
+    <rect x="10" y="22" width="44" height="28" rx="5" fill="white" opacity="0.95" />
+    <!-- Wallet flap -->
+    <rect x="10" y="18" width="44" height="10" rx="4" fill="white" opacity="0.7" />
+    <!-- Coin/pocket -->
+    <rect x="36" y="30" width="14" height="12" rx="3" fill="#667eea" opacity="0.85" />
+    <circle cx="43" cy="36" r="3.5" fill="white" opacity="0.9" />
+    <!-- Rupee lines on wallet -->
+    <line x1="16" y1="31" x2="28" y2="31" stroke="#667eea" stroke-width="2.2" stroke-linecap="round"
+        opacity="0.6" />
+    <line x1="16" y1="36" x2="28" y2="36" stroke="#667eea" stroke-width="2.2" stroke-linecap="round"
+        opacity="0.4" />
+</svg>
