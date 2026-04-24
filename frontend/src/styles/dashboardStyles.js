@@ -6,20 +6,29 @@ const getDashboardStyles = (isDark, isMobile = false) => ({
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     padding: isMobile ? "16px 12px" : "32px 24px",
     transition: "background 0.3s, color 0.3s",
+    overflowX: "hidden",
   },
   header: {
     display: "flex",
     alignItems: isMobile ? "flex-start" : "center",
     justifyContent: "space-between",
     marginBottom: "28px",
-    flexWrap: "wrap",
-    gap: "12px",
+    flexWrap: isMobile ? "wrap" : "nowrap",
+    gap: "10px",
     paddingRight: "0",
   },
-  title: {
-    fontSize: isMobile ? "18px" : "24px",
-    fontWeight: "700",
-    margin: 0,
+  headerTopRow: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  headerButtons: {
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    flexWrap: "wrap",
+    width: isMobile ? "100%" : "auto",
   },
   headerRight: {
     display: "flex",
@@ -27,6 +36,11 @@ const getDashboardStyles = (isDark, isMobile = false) => ({
     gap: "8px",
     flexWrap: "wrap",
     justifyContent: "flex-end",
+  },
+  title: {
+    fontSize: isMobile ? "18px" : "24px",
+    fontWeight: "700",
+    margin: 0,
   },
   addBtn: {
     padding: isMobile ? "8px 12px" : "10px 20px",
@@ -99,6 +113,8 @@ const getDashboardStyles = (isDark, isMobile = false) => ({
       ? "0 4px 20px rgba(0,0,0,0.4)"
       : "0 4px 20px rgba(0,0,0,0.07)",
     transition: "background 0.3s",
+    overflow: "hidden",
+    minWidth: 0,
   },
   cardTitle: {
     fontSize: "16px",
@@ -123,13 +139,13 @@ const getDashboardStyles = (isDark, isMobile = false) => ({
     borderRadius: "6px",
   },
   td: {
-    padding: "12px 12px",
+    padding: isMobile ? "8px 8px" : "12px 12px",
     borderBottom: `1px solid ${isDark ? "#2a2a4a" : "#f0f0f0"}`,
     color: isDark ? "#c8c8e8" : "#333",
     verticalAlign: "middle",
   },
   tdAmount: {
-    padding: "12px 12px",
+    padding: isMobile ? "8px 8px" : "12px 12px",
     borderBottom: `1px solid ${isDark ? "#2a2a4a" : "#f0f0f0"}`,
     color: isDark ? "#c8c8e8" : "#333",
     verticalAlign: "middle",
@@ -137,13 +153,14 @@ const getDashboardStyles = (isDark, isMobile = false) => ({
     fontWeight: "600",
   },
   tdDate: {
-    padding: "12px 12px",
+    padding: isMobile ? "8px 8px" : "12px 12px",
     borderBottom: `1px solid ${isDark ? "#2a2a4a" : "#f0f0f0"}`,
     color: isDark ? "#9090b8" : "#999",
     verticalAlign: "middle",
+    fontSize: isMobile ? "12px" : "14px",
   },
   tdTo: {
-    padding: "12px 12px",
+    padding: isMobile ? "8px 8px" : "12px 12px",
     borderBottom: `1px solid ${isDark ? "#2a2a4a" : "#f0f0f0"}`,
     color: isDark ? "#b794f4" : "#6b46c1",
     verticalAlign: "middle",

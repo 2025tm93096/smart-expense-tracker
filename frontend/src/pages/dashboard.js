@@ -364,27 +364,59 @@ function Dashboard() {
     <div style={s.page} className="db-page">
       {/* Header */}
       <div style={s.header} className="db-header">
-        <h2 style={s.title} className="db-title">
-          💰 Smart Expense Tracker
-        </h2>
-        <div style={s.headerRight} className="db-header-right">
-          <Link
-            to="/split-bills"
-            style={{
-              ...s.addBtn,
-              background: "linear-gradient(135deg, #f6ad55, #ed8936)",
-            }}
-          >
-            🔀 Split Bills
-            {incomingSplits.length > 0 && (
-              <span style={s.notifBadge}>{incomingSplits.length}</span>
-            )}
-          </Link>
-          <button style={s.addBtn} onClick={() => setShowAddExpense(true)}>
-            + Add Expense
-          </button>
-          <TopBar />
-        </div>
+        {isMobile ? (
+          <>
+            {/* Mobile: title + TopBar on same row */}
+            <div style={s.headerTopRow}>
+              <h2 style={s.title} className="db-title">
+                💰 Smart Expense Tracker
+              </h2>
+              <TopBar />
+            </div>
+            {/* Mobile: action buttons on second row */}
+            <div style={s.headerButtons}>
+              <Link
+                to="/split-bills"
+                style={{
+                  ...s.addBtn,
+                  background: "linear-gradient(135deg, #f6ad55, #ed8936)",
+                }}
+              >
+                🔀 Split Bills
+                {incomingSplits.length > 0 && (
+                  <span style={s.notifBadge}>{incomingSplits.length}</span>
+                )}
+              </Link>
+              <button style={s.addBtn} onClick={() => setShowAddExpense(true)}>
+                + Add Expense
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2 style={s.title} className="db-title">
+              💰 Smart Expense Tracker
+            </h2>
+            <div style={s.headerRight} className="db-header-right">
+              <Link
+                to="/split-bills"
+                style={{
+                  ...s.addBtn,
+                  background: "linear-gradient(135deg, #f6ad55, #ed8936)",
+                }}
+              >
+                🔀 Split Bills
+                {incomingSplits.length > 0 && (
+                  <span style={s.notifBadge}>{incomingSplits.length}</span>
+                )}
+              </Link>
+              <button style={s.addBtn} onClick={() => setShowAddExpense(true)}>
+                + Add Expense
+              </button>
+              <TopBar />
+            </div>
+          </>
+        )}
       </div>
 
       {/* Incoming Splits */}
